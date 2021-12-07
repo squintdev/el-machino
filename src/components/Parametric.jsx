@@ -4,15 +4,14 @@ import Sketch from 'react-p5';
 const Parametric = () => {
     const setup = (p5, canvasParentRef) => {
         p5.colorMode(p5.HSB);
-        p5.canvas = p5.createCanvas(1800, 1800);
+        //create dimensions based on window
+        let dispWidth = p5.windowWidth * .75;
+        let dispHeight = p5.windowHeight * .75;
+        p5.canvas = p5.createCanvas(dispWidth, dispHeight);
         p5.zoom = p5.createSlider(1, p5.height/10, p5.height/25, 1) //How big the graph is
         p5.Constant = p5.createSlider(0.0001, 1000, 639.83, 0.001) //
         p5.upperLimit = p5.createSlider(1, 500, 282, 1)
         p5.a=1; p5.b=0; p5.delta=0; p5.inc=0; p5.y=1;
-    
-        //for saving canvas
-        // p5.save = p5.createButton('Save')
-        // p5.save.mousePressed(saveImage());
       }
       
       const draw = p5 => {
@@ -23,7 +22,7 @@ const Parametric = () => {
         //Set parameters
         p5.background(0)
         p5.beginShape();
-        p5.strokeWeight(6);
+        p5.strokeWeight(1);
         p5.stroke(110, 100, 90)
         p5.fill(110,100,30);
         let t = -10;
@@ -52,7 +51,7 @@ const Parametric = () => {
         // p5.saveCanvas('new-piece', 'png');
       }
       
-      return <Sketch setup={setup} draw={draw} />
+      return <div className="parametric px-6 mt-4"><Sketch setup={setup} draw={draw} className="w-1/2"/></div>
 };
 
 export default Parametric;

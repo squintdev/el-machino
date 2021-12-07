@@ -10,13 +10,15 @@ import Motion from './components/Motion';
 
 ReactDOM.render(
   <Router>
-    <Nav />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/parametric" element={<Parametric />} />
-      <Route path="/fractal" element={<Fractal />} />
-      <Route path="/motion" element={<Motion />} />
-    </Routes>
+    <div className="container max-w-full">
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/parametric" element={<Parametric />} />
+        <Route path="/fractal" element={<Fractal />} />
+        <Route path="/motion" element={<Motion />} />
+      </Routes>
+    </div>
   </Router>,
   document.getElementById('root')
 );
